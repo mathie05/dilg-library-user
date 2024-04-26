@@ -16,14 +16,12 @@ function Navbar() {
             onClick={toggleHome}
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
-              alt="Flowbite Logo"
-            />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
-            </span>
+            <img src="src\assets\logo.svg" className="h-8" alt="DLMS Logo" />
+            <button>
+              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                DLMS
+              </span>
+            </button>
           </a>
           <button
             data-collapse-toggle="navbar-default"
@@ -36,7 +34,7 @@ function Navbar() {
             <svg
               className="w-5 h-5"
               aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
+              xmlns=""
               fill="none"
               viewBox="0 0 17 14"
             >
@@ -55,7 +53,7 @@ function Navbar() {
                 <NavLink
                   to={""}
                   className={({ isActive }) =>
-                    `block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500`
+                    `block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`
                   }
                   aria-current="page"
                 >
@@ -70,16 +68,6 @@ function Navbar() {
                   }
                 >
                   Knowledge Products
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to={"/test"}
-                  className={({ isActive }) =>
-                    `block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent`
-                  }
-                >
-                  Test Components
                 </NavLink>
               </li>
             </ul>

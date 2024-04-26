@@ -1,13 +1,16 @@
-// Interface for useFetchInfo, SearchCards
 export interface KPInfo {
   id: string;
   title: string;
   description: string;
-  datePublished: Date;
+  datePublished: string;
   author: string;
   fileType: string;
   kpType: string;
-  downloadURL: string;
+  timeUploaded: string;
+  coverURL: string;
+  kpURL: string;
+  coverName: string;
+  kpName: string;
 }
 
   export interface DocID {
@@ -19,8 +22,8 @@ export interface KPInfo {
   }
 
   export interface FormProps {
-    kpId: string;
+    kpID: string;
     kpTitle: string;
-    downloadURl: string;
+    downloadURL: string;
     onCloseForm: () => void;
   }

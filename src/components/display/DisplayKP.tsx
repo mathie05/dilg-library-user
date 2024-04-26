@@ -42,13 +42,10 @@ function ShowKP({ docId }: DocID) {
   }
 
   const formData = {
-    kpId: docId || "",
+    kpID: docId || "",
     kpTitle: kpInfo.title,
-    downloadURl: kpInfo.downloadURL,
+    downloadURL: kpInfo.kpURL,
   };
-
-  // console.log("Here is the title:", kpInfo.title);
-  // console.log("Here is the url:", kpInfo.downloadURL);
 
   return (
     <>
@@ -80,7 +77,7 @@ function ShowKP({ docId }: DocID) {
             <div className="grid grid-cols-1 gap-y-10 md:grid-cols-2 gap-x-12">
               <div className="text-right">
                 <img
-                  src="https://readymadeui.com/photo.webp"
+                  src={kpInfo.coverURL}
                   alt=""
                   className="inline rounded-lg lg:w-10/12 w-full object-cover"
                 />
@@ -96,13 +93,13 @@ function ShowKP({ docId }: DocID) {
                 <div className="flex items-center gap-4 mb-6">
                   <img
                     className="w-10 h-10 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    src="https://images.freeimages.com/365/images/istock/previews/9734/97343531-businessman-profile-icon-man-avatar-picture-flat-design-vector-icon.jpg"
                     alt=""
                   />
                   <div className="font-medium dark:text-white">
                     <div>{kpInfo.author}</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">
-                      Fix the Date
+                      {kpInfo.datePublished}
                     </div>
                   </div>
                 </div>

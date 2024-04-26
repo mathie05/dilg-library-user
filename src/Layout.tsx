@@ -7,11 +7,13 @@ function Layout() {
   const excludeResults = /^\/searchResults\/[^/]+$/;
   const excludeDisplay = /^\/searchResults\/[^/]+\/[^/]+$/;
   const excludeDisplay2 = /^\/displayAll\/display\/[^/]+$/;
+  const excludeDisplay3 = /^\/displayAll$/;
 
   const renderFooter =
     !excludeResults.test(location.pathname) &&
     !excludeDisplay.test(location.pathname) &&
-    !excludeDisplay2.test(location.pathname);
+    !excludeDisplay2.test(location.pathname) &&
+    !excludeDisplay3.test(location.pathname);
 
   return (
     <>

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { FormProps } from "../../types/interfaces";
 import { useUserForm } from "../../hooks/useUserForm";
-import { useNavigate } from "react-router-dom";
+import { format } from "date-fns";
 
 function Form(formProps: FormProps) {
   const { addUser } = useUserForm();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -37,14 +36,17 @@ function Form(formProps: FormProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      const currentTime: Date = new Date();
+      const formattedTime: string = format(currentTime, "MM-dd-yy");
+
       await addUser({
         ...formData,
-        timeDownloaded: new Date(),
-        kpID: formProps.kpId,
+        kpID: formProps.kpID,
         kpTitle: formProps.kpTitle,
+        timeDownloaded: formattedTime,
       });
 
-      const res = await fetch(formProps.downloadURl);
+      const res = await fetch(formProps.downloadURL);
       const blob = await res.blob();
       const anchor = document.createElement("a");
       anchor.href = window.URL.createObjectURL(blob) as any;
@@ -66,7 +68,6 @@ function Form(formProps: FormProps) {
         reason: "",
       });
 
-      // navigate(`displayKP/${formProps.kpId}`);
       formProps.onCloseForm();
     } catch (error) {
       console.error("Error adding user:", error);

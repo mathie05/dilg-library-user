@@ -22,7 +22,9 @@ function SearchBar() {
             <div className="mx-auto flex z-10 w-full max-w-4xl flex-col items-center py-12 text-center md:py-16 lg:pb-44 lg:pt-24">
               <div className="mb-6 flex items-center gap-2.5 uppercase z-10">
                 <div className="h-px w-10 bg-[#091e3b]"></div>
-                <p className="text-sm font-bold leading-6">200+ Tutorials</p>
+                <p className="text-sm font-bold leading-6">
+                  KNOWLEDGE PRODUCTS
+                </p>
                 <div className="h-px w-10 bg-[#091e3b]"></div>
               </div>
               <h1
@@ -30,15 +32,15 @@ function SearchBar() {
                 data-aos="fade-up"
                 data-aos-duration="900"
               >
-                Explore Our Codeless Tutorials
+                DILG VI: LIBRARY MANAGEMENT SYSTEM
               </h1>
               <p
                 className="mb-10 max-w-xs z-10 text-[#091e3b]"
                 data-aos="fade-up"
                 data-aos-duration="900"
               >
-                Discover a wealth of valuable no-code tutorialsin our
-                comprehensive tutorial hub.
+                Discover e-books, journals, reports that you can utilize for
+                personal or scholarly needs
               </p>
               <div
                 className="w-full max-w-md z-10"
@@ -83,7 +85,7 @@ function SearchBar() {
                       ></path>
                     </svg>
                   </div>
-                  <p className="text-[#091e3b]">No Credit Card</p>
+                  <p className="text-[#091e3b]">Free to Download</p>
                 </div>
                 <div className="flex flex-col items-center justify-start gap-1 text-sm sm:flex-row sm:gap-2.5">
                   <div className="flex h-4 w-4 items-center justify-center text-[#386eec]">
@@ -105,7 +107,7 @@ function SearchBar() {
                       ></path>
                     </svg>
                   </div>
-                  <p className="text-[#091e3b]">24/7 Support</p>
+                  <p className="text-[#091e3b]">Credible Sources</p>
                 </div>
                 <div className="flex flex-col items-center justify-start gap-1 text-sm sm:flex-row sm:gap-2.5">
                   <div className="flex h-4 w-4 items-center justify-center text-[#386eec]">

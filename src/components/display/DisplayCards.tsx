@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useFetchInfo } from "../../hooks/useFetchInfo";
 import { KPInfo } from "../../types/interfaces";
 import { Link } from "react-router-dom";
+import Loader from "../layout/Loader";
 
 const DisplayCards = () => {
   const [visibleBlogs, setVisibleBlogs] = useState<number>(4);
   const [info, setInfo] = useState<KPInfo[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const showMore = () => {
     setVisibleBlogs((prevVisibleBlogs) => prevVisibleBlogs + 4);
@@ -16,9 +18,13 @@ const DisplayCards = () => {
 
     const fetchData = async () => {
       try {
-        unsubscribe = useFetchInfo(setInfo);
+        unsubscribe = useFetchInfo((fetchedInfo: KPInfo[]) => {
+          setInfo(fetchedInfo);
+          setIsLoading(false); // Set loading to false when data is fetched
+        });
       } catch (error) {
         console.error("Error fetching data: ", error);
+        setIsLoading(false); // Set loading to false if there's an error
       }
     };
 
@@ -31,12 +37,16 @@ const DisplayCards = () => {
     };
   }, []);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="bg-white font-[sans-serif] p-4">
       <div className="max-w-6xl max-md:max-w-lg mx-auto">
         <div>
           <h2 className="text-3xl font-extrabold text-[#333] inline-block">
-            LATEST BLOGS
+            LATEST KNOWLEDGE PRODUCTS
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
@@ -45,8 +55,9 @@ const DisplayCards = () => {
             <div key={item.id}>
               <Link to={`display/${item.id}`}>
                 <div className="flex max-lg:flex-col bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] hover:scale-105 transition-all duration-300">
+                  {/* Adjusted image container */}
                   <img
-                    src="https://readymadeui.com/Imagination.webp"
+                    src={item.coverURL}
                     alt={item.title}
                     className="lg:w-2/5 min-h-[250px] h-full object-cover"
                   />
@@ -55,7 +66,7 @@ const DisplayCards = () => {
                       {item.title}
                     </h3>
                     <span className="text-sm block text-gray-400 mt-2">
-                      Fix the Date | BY {item.author}
+                      {item.datePublished} | BY {item.author}
                     </span>
                     <p className="text-sm mt-4 line-clamp-3 ...">
                       {item.description}

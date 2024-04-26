@@ -1,4 +1,4 @@
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection } from "firebase/firestore"
 import { db } from "../firebase/config"
 
 type UserFormData = {
@@ -11,9 +11,9 @@ type UserFormData = {
     occupation: string;
     institution: string;
     reason: string;
-    timeDownloaded: Date;
     kpID: string;
     kpTitle: string;
+    timeDownloaded: string
 }
 
 export const useUserForm = () => {
