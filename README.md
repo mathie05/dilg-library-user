@@ -20,7 +20,7 @@ Remotely clone the source code
 Change the current directory to the project directory
 
 ```bash
-  cd safehive
+  cd dilg-library-user
 ```
 
 Install dependencies
