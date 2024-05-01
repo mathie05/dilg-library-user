@@ -1,7 +1,5 @@
 # DILG Library Management System (DLMS): Client-side
 
-Abstract
-
 ## Authors
 
 - [Mathew Adriane Briones](https://www.facebook.com/mathew.briones.7)
@@ -29,7 +27,7 @@ Install dependencies
   npm install
 ```
 
-Run the DLMS
+Run the DLMS: Client-side
 
 ```bash
   npm run dev
